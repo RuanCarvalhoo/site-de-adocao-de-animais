@@ -1,5 +1,5 @@
     #banner_title {
-    background-color: var(--color-primary6); /* Cor azulada da imagem */
+    background-color: var(--color-primary6); 
     color: white;
     text-align: center;
     padding: 40px 0;
@@ -51,7 +51,7 @@
 }
 
 .dot.active {
-    background-color: #ff6a00; /* Cor azul do ponto na imagem */
+    background-color: #ff6a00; 
 }
 
 .pet_data_col {
@@ -80,7 +80,7 @@
     font-size: 1.2rem;
 }
 
-/* Responsividade básica */
+
 @media screen and (max-width: 768px) {
     #pet_info_section {
         flex-direction: column;
