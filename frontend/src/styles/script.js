@@ -4,6 +4,11 @@ $(document).ready(function() {
         $('#mobile_btn').find('i').toggleClass('fa-x');
     });
 
+    $('#mobile_nav_list .nav-item a').on('click', function() {
+        $('#mobile_menu').removeClass('active');
+        $('#mobile_btn').find('i').removeClass('fa-x');
+    });
+
     const sections = $('section');
     const navItems = $('.nav-item');
 
@@ -16,7 +21,7 @@ $(document).ready(function() {
         if (scrollPosition <= 0){
             header.css('box-shadow', 'none');
         } else {
-            header.css('box-shadow', '5px, 1px 5px rgba(0, 0, 0, 0.1)');
+            header.css('box-shadow', '0px 1px 5px rgba(0, 0, 0, 0.1)');
         }
 
         sections.each(function(i){
@@ -31,6 +36,10 @@ $(document).ready(function() {
         })
         navItems.removeClass('active');
         $(navItems[activeSecctionIndex]).addClass('active');
+    });
+
+    $(document).on('click', '.pet-heart', function() {
+        $(this).toggleClass('active');
     });
 
     ScrollReveal().reveal('#cta', {

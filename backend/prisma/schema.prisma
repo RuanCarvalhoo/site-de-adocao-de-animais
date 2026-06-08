@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum AnimalStatus {
+  DISPONIVEL
+  EM_PROCESSO
+  ADOTADO
+}
+
+enum SocialLocation {
+  HOME
+  FOOTER
+}
+
+model Animal {
+  id                         Int              @id @default(autoincrement())
+  slug                       String           @unique
+  nome                       String
+  especie                    String
+  raca                       String
+  sexo                       String
+  porte                      String
+  corPelagem                 String
+  idadeAproximada            String
+  dataNascimentoAproximada   String
+  dataVacinacaoAntirrabica   String
+  dataVermifugacao           String
+  castrado                   Boolean
+  sociavelOutrosAnimais      Boolean
+  descricao                  String
+  imagem                     String
+  status                     AnimalStatus     @default(DISPONIVEL)
+  createdAt                  DateTime         @default(now())
+  updatedAt                  DateTime         @updatedAt
+  adoptionRequests           AdoptionRequest[]
+
+  @@map("animais")
+}
+
+model AdoptionRequest {
+  id          Int      @id @default(autoincrement())
+  animalId    Int
+  observacao  String?
+  createdAt   DateTime @default(now())
+
+  animal Animal @relation(fields: [animalId], references: [id])
+
+  @@map("solicitacoes_adocao")
+}
+
+model SiteContent {
+  id                          Int      @id
+  homeTitleHtml               String
+  homeDescription             String
+  ctaButtonLabel              String
+  phoneLabel                  String
+  petsSectionTitleHtml        String
+  petsSectionSubtitle         String
+  testimonialsSectionTitle    String
+  testimonialsSectionSubtitle String
+  footerCopyright             String
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+
+  @@map("conteudo_site")
+}
+
+model SocialLink {
+  id           Int            @id @default(autoincrement())
+  platform     String
+  url          String
+  location     SocialLocation
+  displayOrder Int            @default(0)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@unique([platform, location])
+  @@map("links_sociais")
+}
+
+model Testimonial {
+  id           Int      @id @default(autoincrement())
+  code         String   @unique
+  name         String
+  message      String
+  rating       Int
+  avatar       String
+  active       Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("depoimentos")
+}

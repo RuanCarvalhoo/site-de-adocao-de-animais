@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="src/styles/styles.css">
     <link rel="stylesheet" href="src/styles/header.css">
-    <link rel="stylesheet" href="src/styles/adocao.css"> <title>Adote um Pet - Simba</title>
+    <link rel="stylesheet" href="src/styles/adocao.css"> <title>Adote um Pet - Bob</title>
 </head>
 <body>
     <header>
         <nav id="navbar">
-            <i class="fa-solid fa-paw" id="nav_logo"> Adota Aqui</i>
+            <a href="index.html#home" id="nav_logo"><i class="fa-solid fa-paw"></i> Adota Aqui</a>
             <ul id="nav_list">
                 <li class="nav-item"><a href="index.html#home">Ínicio</a></li>
                 <li class="nav-item"><a href="index.html#pets">Animais</a></li>
@@ -27,12 +27,12 @@
 
     <main id="pet_details_container">
         <nav class="breadcrumb">
-            <a href="index.html">Animais</a> &gt; <span class="active">Simba</span>
+            <a href="index.html">Animais</a> &gt; <span class="active">Carregando...</span>
         </nav>
 
         <section id="pet_info_section">
             <div class="pet_image_col">
-                <img src="src/images/gatolaranja.png" alt="Foto do Fred">
+                <img src="" alt="Foto do pet">
                 <div class="image_dots">
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -42,24 +42,13 @@
             </div>
 
             <div class="pet_data_col">
-                <h2 class="pet_name">Simba</h2>
-                <ul class="pet_specs">
-                    <li><strong>Raça:</strong> SRD</li>
-                    <li><strong>Sexo:</strong> Macho</li>
-                    <li><strong>Animal:</strong> Gato</li>
-                    <li><strong>Porte:</strong> Pequeno</li>
-                    <li><strong>Cor predominante da pelagem:</strong> Laranja</li>
-                    <li><strong>Idade aproximada:</strong> 10 meses</li>
-                    <li><strong>Data de nascimento aproximada:</strong> 28/06/2025</li>
-                    <li><strong>Data da vacinação antirrábica:</strong> 10/04/2026</li>
-                    <li><strong>Data da vermifugação:</strong> 19/04/2026</li>
-                    <li><strong>Castrado:</strong> Não</li>
-                    <li><strong>Sociável com outros animais?</strong> Sim</li>
-                </ul>
+                <h2 class="pet_name">Carregando...</h2>
+                <ul class="pet_specs"></ul>
                 
-                <button class="btn-default" id="btn_adotar_pet">Adotar</button>
+                <button class="btn-default" id="btn_adotar_pet">Carregando...</button>
             </div>
         </section>
     </main>
+    <script src="src/styles/api.js"></script>
 </body>
 </html>
